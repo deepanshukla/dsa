@@ -20,18 +20,15 @@ vector<vector<int>>zigzagodr(treenode* root){
     while(!q.empty()){
         int size = q.size();
         vector<int>row(size);
-        for (int i = 0; i < size; i++)
-        {
+        for (int i = 0; i < size; i++){
             treenode *temp = q.front();
             q.pop();
             int index = (ltor) ? i : (size - i -1);
             row[index] = temp->val;
-            if (temp->left)
-            {
+            if (temp->left){
                 q.push(temp->left);
             } 
-            if (temp->right)
-            {
+            if (temp->right){
                 q.push(temp->right);
             }
         }
@@ -49,10 +46,8 @@ int main(){
     root->right->left = new treenode(6);
     vector<vector<int>>zzorder;
     zzorder = zigzagodr(root);
-    for (auto &&i : zzorder)
-    {
-        for (auto &&in : i)
-        {
+    for (auto &&i : zzorder){
+        for (auto &&in : i){
             cout<<in<<" ";
         }
         cout<<endl;
